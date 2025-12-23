@@ -11,29 +11,22 @@ namespace SLE.Patches.Devices
     /// <summary>
     /// Harmony patches for HorizontalQuarry (Ogre) to add custom LogicTypes.
     /// Exposes mining state, ore count, position, and operational status.
-    /// Note: HorizontalQuarry inherits from DeviceImportExport and doesn't override
-    /// CanLogicRead/GetLogicValue, so we must use TargetMethod to find inherited methods.
+    /// Note: HorizontalQuarry inherits from DeviceImportExport which defines CanLogicRead/GetLogicValue,
+    /// so we patch that class and check for HorizontalQuarry instance.
     /// </summary>
     public static class HorizontalQuarryPatches
     {
     }
 
     /// <summary>
-    /// Patch CanLogicRead to allow reading HorizontalQuarry custom LogicTypes.
-    /// Uses TargetMethod because HorizontalQuarry doesn't override this method.
+    /// Patch CanLogicRead on DeviceImportExport to allow reading HorizontalQuarry LogicTypes.
     /// </summary>
-    [HarmonyPatch]
+    [HarmonyPatch(typeof(DeviceImportExport), nameof(DeviceImportExport.CanLogicRead))]
     public static class HorizontalQuarryCanLogicReadPatch
     {
-        public static MethodBase TargetMethod()
+        public static void Postfix(DeviceImportExport __instance, ref bool __result, LogicType logicType)
         {
-            // Get the inherited CanLogicRead method from Device base class
-            return typeof(Device).GetMethod(nameof(Device.CanLogicRead), new[] { typeof(LogicType) });
-        }
-
-        public static void Postfix(Device __instance, ref bool __result, LogicType logicType)
-        {
-            // Only apply to HorizontalQuarry instances
+            // Only handle HorizontalQuarry instances
             if (!(__instance is HorizontalQuarry))
                 return;
 
@@ -47,17 +40,11 @@ namespace SLE.Patches.Devices
     }
 
     /// <summary>
-    /// Patch GetLogicValue to return HorizontalQuarry custom LogicType values.
-    /// Uses TargetMethod because HorizontalQuarry doesn't override this method.
+    /// Patch GetLogicValue on DeviceImportExport to return HorizontalQuarry data values.
     /// </summary>
-    [HarmonyPatch]
+    [HarmonyPatch(typeof(DeviceImportExport), nameof(DeviceImportExport.GetLogicValue))]
     public static class HorizontalQuarryGetLogicValuePatch
     {
-        public static MethodBase TargetMethod()
-        {
-            // Get the inherited GetLogicValue method from Device base class
-            return typeof(Device).GetMethod(nameof(Device.GetLogicValue), new[] { typeof(LogicType) });
-        }
         // Cache reflection for private fields
         private static readonly FieldInfo StateField = typeof(HorizontalQuarry).GetField("_state", BindingFlags.NonPublic | BindingFlags.Instance);
         private static readonly FieldInfo OreQueueField = typeof(HorizontalQuarry).GetField("_oreQueue", BindingFlags.NonPublic | BindingFlags.Instance);
@@ -66,9 +53,9 @@ namespace SLE.Patches.Devices
         private static readonly FieldInfo IsReturningField = typeof(HorizontalQuarry).GetField("_isReturning", BindingFlags.NonPublic | BindingFlags.Instance);
         private static readonly FieldInfo QueueFullField = typeof(HorizontalQuarry).GetField("_queueFull", BindingFlags.NonPublic | BindingFlags.Instance);
 
-        public static bool Prefix(Device __instance, LogicType logicType, ref double __result)
+        public static bool Prefix(DeviceImportExport __instance, LogicType logicType, ref double __result)
         {
-            // Only apply to HorizontalQuarry instances
+            // Only handle HorizontalQuarry instances
             if (!(__instance is HorizontalQuarry quarry))
                 return true;
 

@@ -2,6 +2,15 @@
 
 All notable changes to Stationeers Logic Extended (SLE) will be documented in this file.
 
+## [2.7.1] - 2024-12-23
+
+### Fixed
+- Logic Reader hover now displays custom LogicType names correctly
+  - Added patches for `EnumCollection<LogicType>.GetName` and `GetNameFromValue`
+  - Previously only patched `Enum.GetName` which the game doesn't use for hover UI
+
+---
+
 ## [2.7.0] - 2024-12-22
 
 ### Added - Landing Pad Center Support (5 LogicTypes)
@@ -16,6 +25,11 @@ Fixes vanilla oversight where CanLogicRead returns false despite GetLogicValue s
 ### Added - Area Power Controller Support (1 LogicType)
 - `APCMaximumPower` (1830) - Total maximum power (Battery + Network capacity combined)
   - Vanilla `Maximum` only returns battery capacity, this returns total system capacity
+
+### Fixed
+- Quarry and HorizontalQuarry patches now correctly target DeviceImportExport base class
+  - These devices don't override CanLogicRead/GetLogicValue directly
+  - Now uses same pattern as Harvester patches
 
 ### Changed
 - Total LogicTypes: 224 → 230

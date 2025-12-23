@@ -2,7 +2,7 @@
 <ModMetadata xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Name>Stationeers Logic Extended</Name>
   <Author>SLE Team</Author>
-  <Version>2.7.0</Version>
+  <Version>2.7.1</Version>
   <Description>[h1]Stationeers Logic Extended (SLE)[/h1]
 
 Expands IC10 with [b]230 new LogicTypes[/b] across [b]35 device types[/b].
