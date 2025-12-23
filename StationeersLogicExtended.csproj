@@ -1,0 +1,57 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net481</TargetFramework>
+    <AssemblyName>StationeersLogicExtended</AssemblyName>
+    <RootNamespace>SLE</RootNamespace>
+    <Version>1.0.0</Version>
+    <Authors>SLE Team</Authors>
+    <Description>Stationeers Logic Extended - Adds new LogicTypes to devices</Description>
+    <LangVersion>latest</LangVersion>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <OutputPath>plugins\</OutputPath>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+  </PropertyGroup>
+
+  <!-- Default Stationeers path -->
+  <PropertyGroup Condition="'$(StationeersPath)' == ''">
+    <StationeersPath>C:\Program Files (x86)\Steam\steamapps\common\Stationeers</StationeersPath>
+  </PropertyGroup>
+
+  <!-- LaunchPad/StationeersMods References -->
+  <ItemGroup>
+    <Reference Include="StationeersMods.Interface">
+      <HintPath>$(StationeersPath)\BepInEx\plugins\StationeersLaunchPad\StationeersMods.Interface.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="StationeersMods.Shared">
+      <HintPath>$(StationeersPath)\BepInEx\plugins\StationeersLaunchPad\StationeersMods.Shared.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+
+  <!-- Harmony from BepInEx -->
+  <ItemGroup>
+    <Reference Include="0Harmony">
+      <HintPath>$(StationeersPath)\BepInEx\core\0Harmony.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+
+  <!-- Game References -->
+  <ItemGroup>
+    <Reference Include="Assembly-CSharp">
+      <HintPath>$(StationeersPath)\rocketstation_Data\Managed\Assembly-CSharp.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine">
+      <HintPath>$(StationeersPath)\rocketstation_Data\Managed\UnityEngine.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>$(StationeersPath)\rocketstation_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+
+</Project>

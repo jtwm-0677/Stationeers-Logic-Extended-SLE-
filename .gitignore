@@ -1,0 +1,40 @@
+# Build results
+bin/
+obj/
+plugins/
+
+# IDE and tool directories
+.vs/
+.idea/
+*.user
+*.suo
+*.userprefs
+*.userosscache
+*.sln.docstates
+
+# NuGet packages
+packages/
+*.nupkg
+project.lock.json
+project.fragment.lock.json
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Temporary files
+*.tmp
+*.temp
+*.cache
+
+# Backup files
+*~
+*.bak
+*.swp
+
+# Project-specific
+CONTINUATION.md

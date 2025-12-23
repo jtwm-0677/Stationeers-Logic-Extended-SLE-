@@ -1,0 +1,214 @@
+{
+  "logicTypes": [
+    {
+      "name": "ContactIndex",
+      "displayName": "Contact Index",
+      "description": "Select contact by index (0-based)",
+      "value": 1000,
+      "hash": -1856274790,
+      "dataType": "int",
+      "access": "read-write",
+      "category": "ContactSelection"
+    },
+    {
+      "name": "ContactCount",
+      "displayName": "Contact Count",
+      "description": "Total visible contacts",
+      "value": 1001,
+      "hash": 1589065238,
+      "dataType": "int",
+      "access": "read",
+      "category": "ContactSelection"
+    },
+    {
+      "name": "FilterMode",
+      "displayName": "Filter Mode",
+      "description": "Filter type: 0=All, 1=ShuttleType, 2=Resolved, 3=Unresolved, 4=Contacted, 5=NotContacted",
+      "value": 1002,
+      "hash": 604498019,
+      "dataType": "int",
+      "access": "read-write",
+      "category": "ContactSelection"
+    },
+    {
+      "name": "FilterValue",
+      "displayName": "Filter Value",
+      "description": "Filter parameter value (e.g., ShuttleType when FilterMode=1)",
+      "value": 1003,
+      "hash": -1195619284,
+      "dataType": "int",
+      "access": "read-write",
+      "category": "ContactSelection"
+    },
+    {
+      "name": "FilteredCount",
+      "displayName": "Filtered Count",
+      "description": "Count of contacts matching current filter",
+      "value": 1004,
+      "hash": 1473498627,
+      "dataType": "int",
+      "access": "read",
+      "category": "ContactSelection"
+    },
+    {
+      "name": "ContactShuttleType",
+      "displayName": "Contact Shuttle Type",
+      "description": "ShuttleType enum: 0=None, 1=Small, 2=SmallGas, 3=Medium, 4=MediumGas, 5=Large, 6=LargeGas, 7=MediumPlane, 8=LargePlane",
+      "value": 1010,
+      "hash": -1302245381,
+      "dataType": "int",
+      "access": "read",
+      "category": "ContactProperties"
+    },
+    {
+      "name": "ContactLifetime",
+      "displayName": "Contact Lifetime",
+      "description": "Seconds until contact leaves range",
+      "value": 1011,
+      "hash": -1840449632,
+      "dataType": "float",
+      "access": "read",
+      "category": "ContactProperties"
+    },
+    {
+      "name": "ContactDegreeOffset",
+      "displayName": "Contact Degree Offset",
+      "description": "Alignment angle in degrees (lower = better aligned)",
+      "value": 1012,
+      "hash": 1950862591,
+      "dataType": "float",
+      "access": "read",
+      "category": "ContactProperties"
+    },
+    {
+      "name": "ContactResolved",
+      "displayName": "Contact Resolved",
+      "description": "1 if contact is resolved, 0 if not",
+      "value": 1013,
+      "hash": 883513618,
+      "dataType": "bool",
+      "access": "read",
+      "category": "ContactProperties"
+    },
+    {
+      "name": "ContactContacted",
+      "displayName": "Contact Contacted",
+      "description": "1 if trader has been contacted, 0 if not",
+      "value": 1014,
+      "hash": -248816951,
+      "dataType": "bool",
+      "access": "read",
+      "category": "ContactProperties"
+    },
+    {
+      "name": "ContactResolutionProgress",
+      "displayName": "Contact Resolution Progress",
+      "description": "Resolution progress 0.0-1.0",
+      "value": 1015,
+      "hash": 820838752,
+      "dataType": "float",
+      "access": "read",
+      "category": "ContactProperties"
+    },
+    {
+      "name": "ContactMinWattsResolve",
+      "displayName": "Contact Min Watts Resolve",
+      "description": "Minimum watts required to resolve this contact",
+      "value": 1016,
+      "hash": -1549099869,
+      "dataType": "float",
+      "access": "read",
+      "category": "ContactProperties"
+    },
+    {
+      "name": "ContactMinWattsContact",
+      "displayName": "Contact Min Watts Contact",
+      "description": "Minimum watts required to contact this trader",
+      "value": 1017,
+      "hash": 1096153056,
+      "dataType": "float",
+      "access": "read",
+      "category": "ContactProperties"
+    },
+    {
+      "name": "ContactSecondsToContact",
+      "displayName": "Contact Seconds To Contact",
+      "description": "Seconds required to establish contact",
+      "value": 1018,
+      "hash": 1284780019,
+      "dataType": "float",
+      "access": "read",
+      "category": "ContactProperties"
+    },
+    {
+      "name": "ContactTraderHash",
+      "displayName": "Contact Trader Hash",
+      "description": "Trader type hash (same as game's ContactTypeId)",
+      "value": 1019,
+      "hash": -1685654406,
+      "dataType": "int",
+      "access": "read",
+      "category": "ContactProperties"
+    },
+    {
+      "name": "ContactReferenceId",
+      "displayName": "Contact Reference ID",
+      "description": "Unique reference ID of contact",
+      "value": 1020,
+      "hash": 1866695531,
+      "dataType": "long",
+      "access": "read",
+      "category": "ContactProperties"
+    },
+    {
+      "name": "ContactPadSizeX",
+      "displayName": "Contact Pad Size X",
+      "description": "Required landing pad X size",
+      "value": 1021,
+      "hash": -858549028,
+      "dataType": "float",
+      "access": "read",
+      "category": "ContactProperties"
+    },
+    {
+      "name": "ContactPadSizeZ",
+      "displayName": "Contact Pad Size Z",
+      "description": "Required landing pad Z size",
+      "value": 1022,
+      "hash": -992073142,
+      "dataType": "float",
+      "access": "read",
+      "category": "ContactProperties"
+    },
+    {
+      "name": "DishWattageOnContact",
+      "displayName": "Dish Wattage On Contact",
+      "description": "Actual watts reaching selected contact",
+      "value": 1030,
+      "hash": -545236897,
+      "dataType": "float",
+      "access": "read",
+      "category": "DishState"
+    },
+    {
+      "name": "DishIsInterrogating",
+      "displayName": "Dish Is Interrogating",
+      "description": "1 if dish is currently interrogating a contact",
+      "value": 1031,
+      "hash": 117481530,
+      "dataType": "bool",
+      "access": "read",
+      "category": "DishState"
+    },
+    {
+      "name": "DishInterrogatingId",
+      "displayName": "Dish Interrogating ID",
+      "description": "ReferenceId of contact being interrogated, 0 if none",
+      "value": 1032,
+      "hash": 1270802561,
+      "dataType": "long",
+      "access": "read",
+      "category": "DishState"
+    }
+  ]
+}

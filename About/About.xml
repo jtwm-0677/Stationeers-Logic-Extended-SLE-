@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetadata xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Name>Stationeers Logic Extended</Name>
+  <Author>SLE Team</Author>
+  <Version>2.7.0</Version>
+  <Description>[h1]Stationeers Logic Extended (SLE)[/h1]
+
+Expands IC10 with [b]230 new LogicTypes[/b] across [b]35 device types[/b].
+
+[h2]Requirements[/h2]
+[olist]
+[*] [url=https://github.com/BepInEx/BepInEx/releases]BepInEx 5.4[/url] - Extract to game folder
+[*] [url=https://github.com/StationeersLaunchPad/StationeersLaunchPad/releases]StationeersLaunchPad[/url] - Extract to BepInEx/plugins
+[*] Subscribe to this mod
+[/olist]
+
+[h2]Supported Devices[/h2]
+
+[b]Satellite Dish (19)[/b] - ContactIndex, ContactCount, FilterMode, ContactShuttleType, ContactLifetime, ContactResolved, ContactContacted, DishWattageOnContact, DishIsInterrogating +more
+
+[b]Daylight Sensor (8)[/b] - TimeOfDay, IsEclipse, EclipseRatio, DaysPast, DayLengthSeconds, Latitude, Longitude, WeatherSolarRatio
+
+[b]Hydroponics (10)[/b] - LightExposure, IsLitByGrowLight, WaterMoles, PlantGrowthEfficiency, BreathingEfficiency, TemperatureEfficiency +more
+
+[b]Harvester (10)[/b] - HasTray, IsHarvesting, IsPlanting, ArmState, HasImportPlant, ImportPlantHash, FertilizerCycles +more
+
+[b]Pipe Analyzer (26)[/b] - PartialPressure (all 9 gases), TotalMolesGasses/Liquids, Combustion data, [b]NEW:[/b] PipeStressRatio, PipeIsStressed, PipeDamageRatio, PipeIsBurst, PipeDamageType, NetworkHasFault, NetworkWorstDamage
+
+[b]Furnace (12)[/b] - FurnaceTemperature, FurnacePressure, FurnaceTotalMoles, FurnaceInflamed, FurnaceMode, FurnaceOverpressure, FurnaceStressed, FurnaceHasBlown +more
+
+[b]Advanced Furnace (+4)[/b] - MinSettingInput, MaxSettingInput, MinSettingOutput, MaxSettingOutput
+
+[b]Arc Furnace (4)[/b] - ArcFurnaceActivate (readable!), ImportStackSize, SmeltingPower, ArcFurnaceIsSmelting
+
+[b]Filtration Machine (13)[/b] - FilterSlotIndex (r/w), FilterSlotCount, FilterQuantity, FilterIsLow, FilterIsEmpty, FilterTypeHash, FilterLife +more
+
+[b]Air Conditioner (4)[/b] - ACEnergyMoved, ACIsFullyConnected, ACPowerUsed, ACEfficiency
+
+[b]Wall Cooler (4)[/b] - CoolerIsEnvironmentOkay, CoolerIsPipeOkay, CoolerPowerUsed, CoolerEnergyMoved
+
+[b]Wall Heater (5)[/b] - HeaterIsEnvironmentOkay, HeaterPowerUsed, HeaterEnergyTransfer, HeaterMaxTemperature
+
+[b]Active Vent (3)[/b] - VentFlowStatus (0-6), VentIsConnected, VentPowerUsed
+
+[b]Battery (6)[/b] - PowerDelta, BatteryIsSubmerged, InputSubmergedTicks, OutputSubmergedTicks, BatteryIsEmpty, BatteryIsCharged
+
+[b]Solar Panel (9)[/b] - SolarVisibility, SolarDamageRatio, SolarDamageTotal, SolarHealth, SolarEfficiency, SolarIsOperable, SolarIsBroken, SolarMovementSpeedH, SolarMovementSpeedV
+
+[b]H2 Combustor (4)[/b] - H2CombustorProcessedMoles, H2CombustorUsedPower, H2CombustorIsOperable, H2CombustorCodeError
+
+[b]Electrolyzer (4)[/b] - ElectrolyzerProcessedMoles, ElectrolyzerUsedPower, ElectrolyzerIsOperable, ElectrolyzerCodeError
+
+[b]Condensation/Evaporation Chambers (5)[/b] - ChamberEnergyTransfer, ChamberIsOperable, ChamberVolume, ChamberHeatExchangeRatio, ChamberLiquidRatio
+
+[b]Fabricator/Printer (6)[/b] - FabricatorCurrentIndex, FabricatorRecipeCount, FabricatorCurrentTier, FabricatorTimeMultiplier, FabricatorPowerUsed, FabricatorMakingIndex
+
+[b]Advanced Composter (8)[/b] - ComposterGrindProgress, ComposterBatchProgress, ComposterDecayCount, ComposterNormalCount, ComposterBiomassCount, ComposterPowerUsed, ComposterCanProcess, ComposterIsOperable
+
+[b]AIMeE Bot (8)[/b] - [b]NEW:[/b] RobotIsStorageEmpty, RobotIsStorageFull, RobotIsOperable, RobotBatteryRatio, RobotIsBusy, RobotDamageRatio, RobotStorageCount, RobotStorageCapacity
+
+[b]Autominer Small (7)[/b] - [b]NEW:[/b] QuarryDrillState, QuarryOreCount, QuarryDepth, QuarryMaxDepth, QuarryIsDrillFinished, QuarryIsTransporting, QuarryIsDelivering
+
+[b]Ogre (6)[/b] - [b]NEW:[/b] OgreState, OgreOreCount, OgrePosition, OgreMiningComplete, OgreIsReturning, OgreQueueFull
+
+[b]Recycler (5)[/b] - [b]NEW:[/b] RecyclerReagentTotal, RecyclerIsExporting, RecyclerAtCapacity, RecyclerIdleTicks, RecyclerIsProcessing
+
+[b]Stirling Engine (6)[/b] - [b]NEW:[/b] StirlingHotTemperature, StirlingColdTemperature, StirlingTemperatureDelta, StirlingEfficiency, StirlingMaxPower, StirlingIsConnected
+
+[b]Rocket Miner (4)[/b] - [b]NEW:[/b] RocketMiningProgress, RocketNextOreHash, RocketMiningQuantity, RocketIsMining
+
+[b]Landing Pad Center (5)[/b] - [b]NEW:[/b] PadContactStatus (fixes vanilla read!), PadIsTraderReady, PadHasContact, PadIsLocked, PadWaypointHeight
+
+[b]Area Power Controller (1)[/b] - [b]NEW:[/b] APCMaximumPower (Battery + Network capacity combined)
+
+[b]Other:[/b] Wind Turbine (4), Gas Fuel Gen (6), Solid Fuel Gen (1), Weather Station (2), Deep Miner (2), Centrifuge (4)
+
+[h2]Features[/h2]
+[list]
+[*] All LogicTypes as IC10 named constants
+[*] Stationpedia integration
+[*] GREEN = revealed data, BLUE = new functionality
+[/list]
+
+[h2]Example[/h2]
+[code]
+l r0 dish ContactCount
+l r1 furnace FurnaceTemperature
+l r2 battery BatteryIsCharged
+l r3 solar SolarEfficiency
+l r4 composter ComposterBatchProgress
+[/code]
+
+[h2]Ranges[/h2]
+1000-1039: Dish | 1100-1103: Centrifuge | 1110-1119: Sensor | 1120-1249: Power | 1160-1199: Farming | 1210-1228: Battery/Solar | 1230-1249: Electrolysis | 1250-1292: Pipe Analyzer | 1300-1339: Furnaces | 1400-1419: Filtration | 1500-1549: HVAC | 1600-1629: Processing | 1700-1707: Robot | 1720-1726: Quarry | 1740-1745: Ogre | 1760-1764: Recycler | 1780-1785: Stirling | 1800-1803: RocketMiner | 1820-1824: LandingPad | 1830: APC
+
+[hr][/hr]
+[i]Active development - suggestions welcome![/i]
+[b]Compatibility:[/b] Custom values 1000+ avoid vanilla conflicts</Description>
+  <ChangeLog xsi:nil="true" />
+  <WorkshopHandle>3625190467</WorkshopHandle>
+  <Tags>
+    <Tag>Logic</Tag>
+    <Tag>Automation</Tag>
+    <Tag>IC10</Tag>
+    <Tag>Satellite</Tag>
+    <Tag>Plugin</Tag>
+  </Tags>
+  <InGameDescription xsi:nil="true" />
+</ModMetadata>
